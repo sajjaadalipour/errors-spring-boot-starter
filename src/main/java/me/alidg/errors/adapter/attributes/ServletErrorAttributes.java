@@ -3,6 +3,7 @@ package me.alidg.errors.adapter.attributes;
 import me.alidg.errors.HttpError;
 import me.alidg.errors.WebErrorHandlers;
 import me.alidg.errors.adapter.HttpErrorAttributesAdapter;
+import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.web.context.request.WebRequest;
 
@@ -61,13 +62,14 @@ public class ServletErrorAttributes extends DefaultErrorAttributes {
      * the exception using the {@link #webErrorHandlers} and adapts the returned {@link HttpError} to a
      * Spring Boot compatible representation.
      *
-     * @param webRequest        The current HTTP request.
-     * @param includeStackTrace Whether or not to include the stack trace in the error attributes.
+     * @param webRequest The current HTTP request.
+     * @param options    Whether or not to include the stack trace in the error attributes.
      * @return Error details.
      */
     @Override
-    public Map<String, Object> getErrorAttributes(WebRequest webRequest, boolean includeStackTrace) {
-        Map<String, Object> attributes = super.getErrorAttributes(webRequest, includeStackTrace);
+    public Map<String, Object> getErrorAttributes(WebRequest webRequest, ErrorAttributeOptions options) {
+        Map<String, Object> attributes = super.getErrorAttributes(webRequest, options);
+
         Throwable exception = getError(webRequest);
         if (exception == null) exception = Exceptions.refineUnknownException(attributes);
 

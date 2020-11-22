@@ -77,7 +77,7 @@ or Gradle:
 compile "me.alidg:errors-spring-boot-starter:1.4.0"
 ```
 
-If you like to stay at the cutting edge, use our `1.5.0-SNAPSHOT` version. Of course you should define the following 
+If you like to stay at the cutting edge, use our `1.6.0-SNAPSHOT` version. Of course, you should define the following 
 snapshot repository:
 ```xml
 <repositories>
@@ -99,7 +99,7 @@ repositories {
 ### Prerequisites
 The main dependency is JDK 8+. Tested with:
  - JDK 8, JDK 9, JDK 10 and JDK 11 on Linux.
- - Spring Boot `2.2.0.RELEASE` (Also, should work with any `2.0.0+`)
+ - Spring Boot `2.4.0` (Also, should work with any `2.3.0+`)
 
 ### Overview
 The `WebErrorHandler` implementations are responsible for handling different kinds of exceptions. When an exception 
@@ -167,7 +167,7 @@ key-value pair in our message resource file:
 ```properties
 user.already_exists=Another user with the same username already exists
 ```
-Then if an exception of type `UserAlreadyExistsException` was thrown, you would see a `400 Bad Request` HTTP response 
+Then if an exception to type `UserAlreadyExistsException` was thrown, you would see a `400 Bad Request` HTTP response 
 with a body like:
 ```json
 {
